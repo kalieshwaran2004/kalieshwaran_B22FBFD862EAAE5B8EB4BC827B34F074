@@ -1,26 +1,20 @@
-class Student:
-    def __init__(self, name, roll_number, cgpa):
-        self.name = name
-        self.roll_number = roll_number
-        self.cgpa = cgpa
+def linear_search_product(product_list, target_product):
+  indices = []
 
-    def __str__(self):
-        return f"Name: {self.name}, Roll Number: {self.roll_number}, CGPA: {self.cgpa}"
+  for i, product in enumerate(product_list):
+    if product == target_product:
+      indices.append(i)
 
-def sort_students_ascending(student_list):
-    sorted_students = sorted(student_list, key=lambda x: x.cgpa)
-    return sorted_students
+  return indices
+
 
 # Example usage:
-students = [
-    Student("vel", "A123", 3.5),
-    Student("antho", "B456", 3.8),
-    Student("thiru", "C789", 3.2),
-    Student("lokesh", "D234", 3.9),
-]
+products = ["apple", "banana", "orange", "apple", "grape", "apple"]
+target = "apple"
 
-sorted_students_ascending = sort_students_ascending(students)
+result = linear_search_product(products, target)
 
-print("Sorted Students by CGPA (Ascending Order):")
-for student in sorted_students_ascending:
-    print(student) 
+if result:
+  print(f"The target product '{target}' was found at indices: {result}")
+else:
+  print(f"The target product '{target}' was not found in the list.")
